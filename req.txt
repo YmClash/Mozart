@@ -1,0 +1,6 @@
+torch
+pandas
+mathplotlib
+pycomposer
+pretty_midi
+
