@@ -1,5 +1,7 @@
 import torch
 
+
+#neuronne  LSTM  simple  en  torch
 # Définition des entrées
 x = torch.tensor([0.5, 0.8])
 

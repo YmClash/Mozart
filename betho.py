@@ -5,7 +5,7 @@ import torch.optim as optim
 import pandas as pd
 
 
-# on  class  une classe d'reseau
+# on cree une class  une classe d'reseau
 class LSMTModel(nn.Module) :
     def __init__(self, input_size, hidden_size, num_layers, output_size) :
         super(LSMTModel, self).__init__()
@@ -24,7 +24,8 @@ class LSMTModel(nn.Module) :
         return out
 
 
-# donne    pour   l'eintrainement
+# on  initualise les donnès pour l'eintrainement
+
 x_train = torch.randn(1000, 10, 128)
 y_train = torch.randn(1000, 1)
 x_test = torch.randn(100, 10, 128)

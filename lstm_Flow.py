@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+
+#neurone   simple   LSTM   sur Tensorflow
 # Définition des entrées
 x1 = tf.constant(0.5, dtype=tf.float32)
 x2 = tf.constant(0.8, dtype=tf.float32)
