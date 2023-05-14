@@ -9,6 +9,7 @@ import mido
 import pickle
 import json
 from torchvision.datasets import MNIST
+import midi2np
 
 
 
@@ -33,19 +34,20 @@ class LSMTModel(nn.Module) :
         out = self.fc(out[:, -1, :])
         return out
 
-#on  ajoute une  fichie  pour servir d'entrainement
-# midi_file = mido.MidiFile(r'MIDI/Caribbean-Blue.mid',clip=True)
-# print(midi_file)
+# on  ajoute une  fichie  pour servir d'entrainement
+midi_file = mido.MidiFile(r'MIDI/Caribbean-Blue.mid',clip=True)
+result_array = midi2np.result_array(midi_file)
+print(midi_file)
 
-
-with open('JSB-Chorales-dataset-master/jsb-chorales-quarter.pkl','rb') as x:
-    data = pickle.load(x,encoding="latin1")
-
-
-x_train = data['train']
-y_train = data['train']
-x_test = data['test']
-y_test = data['valid']
+#
+# with open('JSB-Chorales-dataset-master/jsb-chorales-quarter.pkl','rb') as x:
+#     data = pickle.load(x,encoding="latin1")
+#
+#
+# x_train = data['train']
+# y_train = data['train']
+# x_test = data['test']
+# y_test = data['valid']
 
 
 
@@ -79,7 +81,7 @@ mozart = LSMTModel(input_size, hidden_size, num_layers, output_size)
 perte = nn.MSELoss()
 optimizer = optim.Adam(mozart.parameters(), lr=0.001)
 
-num_epoch = 100
+num_epoch = 10
 batch_size = 32
 
 loss_values = []
